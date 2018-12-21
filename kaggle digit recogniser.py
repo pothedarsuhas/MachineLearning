@@ -8,7 +8,7 @@ import os
 
 # Any results you write to the current directory are saved as output.
 
-TEST = pd.read_csv('../input/test.csv') 
+TEST = pd.read_csv('../input/test.csv') #This runs on Kaggle only
 
 TRAIN = pd.read_csv('../input/train.csv')
 
@@ -24,8 +24,7 @@ y = TRAIN['label']
 
 # Import necessary modules
 from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-
+from sklearn.neighbors import KNeighborsClassifier # K Nearest Neighbor Classifier with   7 neighbors are used
 
 
 # Split into training and test set
@@ -39,7 +38,7 @@ knn.fit(X_train,y_train)
 # X_pred = knn.predict(X_train)
 
 # accuracy = knn.accuracy(X_test, X_pred)
-# print(accuracy)
+# print(accuracy) # is around 96 %
 
 
 # y_pred = knn.predict(y_train)
@@ -48,5 +47,5 @@ knn.fit(X_train,y_train)
 
 predictions = knn.predict(TEST)
 predictions.index += 1
-print(predictions.iloc[:,:1])
-predictions.iloc[:,:1].to_csv('out.csv', encoding = 'utf-8', sep = ',')
+#print(predictions.iloc[:,:1]) #This prints all the predictions
+predictions.iloc[:,:1].to_csv('out.csv', encoding = 'utf-8', sep = ',') # This generates a csv file
